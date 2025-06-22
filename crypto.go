@@ -31,7 +31,7 @@ var xorBufferPool = sync.Pool{ // nolint:gochecknoglobals
 // xorBytesCTR performs CTR encryption and decryption.
 // It is equivalent to cipher.NewCTR followed by XORKeyStream.
 func xorBytesCTR(block cipher.Block, iv []byte, dst, src []byte) error {
-	if len(iv) != aesBlockSize {
+	if len(iv) != aesBlockSize || block.BlockSize() != aesBlockSize {
 		return errBadIVLength
 	}
 
