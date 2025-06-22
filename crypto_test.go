@@ -19,7 +19,7 @@ func xorBytesCTRReference(block cipher.Block, iv []byte, dst, src []byte) {
 }
 
 func benchmarkAESCTR(block cipher.Block, iv []byte, dst, src []byte) {
-	xorBytesCTR(block, iv, dst, src)
+	_ = xorBytesCTR(block, iv, dst, src)
 }
 
 func BenchmarkAES128CTRAlloc(b *testing.B) {
