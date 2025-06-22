@@ -26,7 +26,7 @@ func BenchmarkAES128CTRAlloc(b *testing.B) {
 	b.ReportAllocs()
 	const keysize = 16
 	key := make([]byte, keysize)
-	_, _ = rand.Read(key)
+	_, _ = rand.Read(key) //nolint: gosec,staticcheck
 	block, _ := aes.NewCipher(key)
 	iv := make([]byte, block.BlockSize())
 	src := make([]byte, 0)
@@ -41,7 +41,7 @@ func BenchmarkAES256CTRAlloc(b *testing.B) {
 	b.ReportAllocs()
 	const keysize = 32
 	key := make([]byte, keysize)
-	_, _ = rand.Read(key)
+	_, _ = rand.Read(key) //nolint: gosec,staticcheck
 	block, _ := aes.NewCipher(key)
 	iv := make([]byte, block.BlockSize())
 	src := make([]byte, 0)
