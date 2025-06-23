@@ -23,7 +23,7 @@ func incrementCTR(ctr []byte) {
 const aesBlockSize = 16
 
 var xorBufferPool = sync.Pool{ // nolint:gochecknoglobals
-	New: func() interface{} {
+	New: func() any {
 		return make([]byte, 32)
 	},
 }
